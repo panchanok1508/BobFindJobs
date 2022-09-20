@@ -123,57 +123,97 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &291755018
+--- !u!1 &58184517
 GameObject:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 7813756040039949807, guid: 5405a777ab07c8d4584df8a929771867, type: 3}
-  m_PrefabInstance: {fileID: 5238155486548411161}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 291755020}
-  - component: {fileID: 291755019}
-  m_Layer: 0
-  m_Name: WordBank
+  - component: {fileID: 58184518}
+  - component: {fileID: 58184520}
+  - component: {fileID: 58184519}
+  m_Layer: 5
+  m_Name: Timer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &291755019
-MonoBehaviour:
+--- !u!224 &58184518
+RectTransform:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 8864902899214516005, guid: 5405a777ab07c8d4584df8a929771867, type: 3}
-  m_PrefabInstance: {fileID: 5238155486548411161}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 291755018}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1305631b50de4e44fab4a4446e6c79b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  originalWords:
-  - Hacker
-  - Spy
-  - Thief
-  - Job
-  - Bob
-  workingWords: []
---- !u!4 &291755020
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 2576071245092585660, guid: 5405a777ab07c8d4584df8a929771867, type: 3}
-  m_PrefabInstance: {fileID: 5238155486548411161}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 291755018}
+  m_GameObject: {fileID: 58184517}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_Father: {fileID: 521141389}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 217.2054, y: 98.9245}
+  m_Pivot: {x: 0, y: 1}
+--- !u!114 &58184519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 58184517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 75
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 7
+    m_MaxSize: 75
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Timer
+--- !u!222 &58184520
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 58184517}
+  m_CullTransparentMesh: 1
+--- !u!114 &291755019 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8864902899214516005, guid: 5405a777ab07c8d4584df8a929771867, type: 3}
+  m_PrefabInstance: {fileID: 5238155486548411161}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1305631b50de4e44fab4a4446e6c79b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &521141385
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,6 +307,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1132685135}
+  - {fileID: 58184518}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -371,7 +412,7 @@ GameObject:
   - component: {fileID: 1132685137}
   - component: {fileID: 1132685136}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: Word
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -439,54 +480,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1132685134}
   m_CullTransparentMesh: 1
---- !u!1 &1710922667
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 5035795552707544707, guid: b3c637a0dd0096a41b3884e60f335495, type: 3}
-  m_PrefabInstance: {fileID: 6732910708526472776}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1710922669}
-  - component: {fileID: 1710922668}
-  m_Layer: 0
-  m_Name: Typer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1710922668
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 6553949465428414355, guid: b3c637a0dd0096a41b3884e60f335495, type: 3}
-  m_PrefabInstance: {fileID: 6732910708526472776}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1710922667}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d39076546e495e4f91c6c3c94fd705c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wordBank: {fileID: 291755019}
-  wordOutput: {fileID: 1132685136}
-  remainingWord: 
-  currentWord: 
---- !u!4 &1710922669
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 5438934066695770639, guid: b3c637a0dd0096a41b3884e60f335495, type: 3}
-  m_PrefabInstance: {fileID: 6732910708526472776}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1710922667}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &5238155486548411161
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -608,8 +601,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 291755019}
     - target: {fileID: 6553949465428414355, guid: b3c637a0dd0096a41b3884e60f335495, type: 3}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 58184519}
+    - target: {fileID: 6553949465428414355, guid: b3c637a0dd0096a41b3884e60f335495, type: 3}
       propertyPath: wordOutput
       value: 
       objectReference: {fileID: 1132685136}
+    - target: {fileID: 6553949465428414355, guid: b3c637a0dd0096a41b3884e60f335495, type: 3}
+      propertyPath: startNumber
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3c637a0dd0096a41b3884e60f335495, type: 3}
