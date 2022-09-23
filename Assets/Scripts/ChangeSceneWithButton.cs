@@ -22,6 +22,7 @@ public class ChangeSceneWithButton : MonoBehaviour
 
     public void QuitGame()
     {
+        Debug.Log(" I'm OUT ");
         Application.Quit();
     }
 }

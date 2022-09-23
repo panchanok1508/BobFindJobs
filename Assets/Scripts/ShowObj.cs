@@ -14,5 +14,9 @@ public class ShowObj : MonoBehaviour
 
             Next.SetActive(!isActive);
         }
+        else
+        {
+            Next = null;
+        }
     }
 }

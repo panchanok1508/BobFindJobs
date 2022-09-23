@@ -13,21 +13,24 @@ public class Typer : MonoBehaviour
     private string remainingWord = string.Empty;
 
     private string currentWord = string.Empty;
-    
+
+
     //typer
-    
+
     //timer
     [SerializeField] private Text timerText;
     [SerializeField] private int startNumber = 10;
     private float updateTreshold;
     private int currentNumber;
     private bool startCounting;
+
+    private bool isGameover = false;
     //timer
 
     //timer
     private void Awake()
     {
-        Debug.Assert(condition:timerText!=null,message:"timeText not be null");
+        Debug.Assert(condition: timerText != null, message: "timeText not be null");
     }
     //timer
     private void Start()
@@ -41,49 +44,52 @@ public class Typer : MonoBehaviour
         //timer
     }
 
-    
+
 
     private void Update()
     {
-        
-        
-        //timer
-        if (GetKeyDown(KeyCode.Space))
+        if (isGameover == false)
         {
-            startCounting = true;
-            updateTreshold = 0;
-            currentNumber = startNumber;
-            SetTimerText(currentNumber);
-            
-        }
-        
-        CheckInput();
-        
-        if (!startCounting)
-        {
-            return;
-        }
+            //timer
+            if (GetKeyDown(KeyCode.Space))
+            {
+                startCounting = true;
+                updateTreshold = 0;
+                currentNumber = startNumber;
+                SetTimerText(currentNumber);
 
-        updateTreshold += Time.deltaTime;
-        if (updateTreshold<1)
-        {
-            return;
-        }
-        updateTreshold = 0;
-        currentNumber--;
-        if (currentNumber>0)
-        {
-            SetTimerText(currentNumber);
-            DisableKey(KeyCode.Space);
+            }
+
+            CheckInput();
+
+            if (!startCounting)
+            {
+                return;
+            }
+
+            updateTreshold += Time.deltaTime;
+            if (updateTreshold < 1)
+            {
+                return;
+            }
+            updateTreshold = 0;
+            currentNumber--;
+            if (currentNumber > 0)
+            {
+                SetTimerText(currentNumber);
+                DisableKey(KeyCode.Space);
+            }
+            else
+            {
+                SetTimerText("END");
+                startCounting = false;
+                EnableKey(KeyCode.Space);
+            }
         }
         else
         {
-            SetTimerText("END");
-            startCounting = false;
-            EnableKey(KeyCode.Space);
-        }
-        
 
+        }
     }
 
     void SetTimerText(int number)
@@ -111,13 +117,13 @@ public class Typer : MonoBehaviour
     }
     private void CheckInput()
     {
-        if (currentNumber>0 && currentNumber!=startNumber)
+        if (currentNumber > 0 && currentNumber != startNumber)
         {
             if (Input.anyKeyDown)
             {
                 string keysPressed = Input.inputString;
-            
-                if(keysPressed.Length==1)
+
+                if (keysPressed.Length == 1)
                     EnterLetter(keysPressed);
             }
         }
@@ -130,7 +136,7 @@ public class Typer : MonoBehaviour
         {
             RemoveLetter();
             if (IsWordComplete())
-            SetCurrentWord();
+                SetCurrentWord();
         }
     }
 
@@ -148,45 +154,45 @@ public class Typer : MonoBehaviour
 
     private bool IsWordComplete()
     {
-        return remainingWord.Length==0;
+        return remainingWord.Length == 0;
     }
     //typer
     private bool GetKeyDown(KeyCode keyCode)
     {
         if (!keys.ContainsKey(keyCode))
         {
-            keys.Add( keyCode, true );
-            
+            keys.Add(keyCode, true);
+
         }
-        
+
         return Input.GetKeyDown(keyCode) && keys[keyCode];
     }
-    
-    private void DisableKey( KeyCode keyCode )
+
+    private void DisableKey(KeyCode keyCode)
     {
-        if( !keys.ContainsKey( keyCode ))
+        if (!keys.ContainsKey(keyCode))
         {
-            keys.Add( keyCode, false );
+            keys.Add(keyCode, false);
         }
-        
+
         else
         {
             keys[keyCode] = false;
         }
-        
+
     }
-    
-    private void EnableKey( KeyCode keyCode )
+
+    private void EnableKey(KeyCode keyCode)
     {
         if (!keys.ContainsKey(keyCode))
         {
-            keys.Add( keyCode, true );
+            keys.Add(keyCode, true);
         }
 
         else
         {
             keys[keyCode] = true;
         }
-        
+
     }
 }
