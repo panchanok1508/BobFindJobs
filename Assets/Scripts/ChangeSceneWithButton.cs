@@ -9,4 +9,19 @@ public class ChangeSceneWithButton : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
     }
+
+    public void MenuScene()
+    {
+        SceneManager.LoadScene("Menu");
+    }
+
+    public void SelectJobsScene()
+    {
+        SceneManager.LoadScene("SelectJobs");
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }
