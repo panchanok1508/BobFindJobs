@@ -848,16 +848,40 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ChangeSceneWithButton, Assembly-CSharp
-        m_MethodName: LoadScene
-        m_Mode: 5
+      - m_Target: {fileID: 187892372}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Spy
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 2100312461}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 855955885}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &187892375
@@ -1393,7 +1417,7 @@ GameObject:
   - component: {fileID: 369705931}
   - component: {fileID: 369705930}
   - component: {fileID: 369705929}
-  - component: {fileID: 369705928}
+  - component: {fileID: 369705932}
   m_Layer: 5
   m_Name: Spy
   m_TagString: Untagged
@@ -1422,19 +1446,6 @@ RectTransform:
   m_AnchoredPosition: {x: -666, y: -220}
   m_SizeDelta: {x: 260, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &369705928
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 369705926}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6457a1b7b8ea0aa41808c7e53a4f0701, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Next: {fileID: 187892372}
 --- !u!114 &369705929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1479,8 +1490,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 369705928}
-        m_TargetAssemblyTypeName: ShowObj, Assembly-CSharp
+      - m_Target: {fileID: 369705932}
+        m_TargetAssemblyTypeName: SpyCheckButton, Assembly-CSharp
         m_MethodName: ShowNextButton
         m_Mode: 1
         m_Arguments:
@@ -1529,6 +1540,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 369705926}
   m_CullTransparentMesh: 1
+--- !u!114 &369705932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 369705926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ce8914034bfc9f45b52eb17ed76c80e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spy: {fileID: 369705929}
+  Next: {fileID: 187892372}
 --- !u!1 &374999581
 GameObject:
   m_ObjectHideFlags: 0
@@ -2022,7 +2047,6 @@ GameObject:
   - component: {fileID: 643360729}
   - component: {fileID: 643360728}
   - component: {fileID: 643360727}
-  - component: {fileID: 643360726}
   m_Layer: 5
   m_Name: Thief
   m_TagString: Untagged
@@ -2051,19 +2075,6 @@ RectTransform:
   m_AnchoredPosition: {x: -666, y: -360}
   m_SizeDelta: {x: 260, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &643360726
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 643360724}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6457a1b7b8ea0aa41808c7e53a4f0701, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Next: {fileID: 2100312461}
 --- !u!114 &643360727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2108,7 +2119,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 643360726}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ShowObj, Assembly-CSharp
         m_MethodName: ShowNextButton
         m_Mode: 1
@@ -2951,10 +2962,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ChangeSceneWithButton, Assembly-CSharp
-        m_MethodName: LoadScene
-        m_Mode: 5
+      - m_Target: {fileID: 187892372}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2962,6 +2973,30 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: Hacker
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2100312461}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 855955885}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &855955888
 MonoBehaviour:
@@ -4239,7 +4274,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1137309043
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4332,7 +4367,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1208328553
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4380,7 +4415,6 @@ GameObject:
   - component: {fileID: 1221393377}
   - component: {fileID: 1221393376}
   - component: {fileID: 1221393375}
-  - component: {fileID: 1221393374}
   m_Layer: 5
   m_Name: Hacker
   m_TagString: Untagged
@@ -4409,19 +4443,6 @@ RectTransform:
   m_AnchoredPosition: {x: -666, y: -500}
   m_SizeDelta: {x: 260, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1221393374
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1221393372}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6457a1b7b8ea0aa41808c7e53a4f0701, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Next: {fileID: 855955885}
 --- !u!114 &1221393375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4466,7 +4487,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1221393374}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ShowObj, Assembly-CSharp
         m_MethodName: ShowNextButton
         m_Mode: 1
@@ -7083,16 +7104,40 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ChangeSceneWithButton, Assembly-CSharp
-        m_MethodName: LoadScene
-        m_Mode: 5
+      - m_Target: {fileID: 187892372}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Thief
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2100312461}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 855955885}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2100312464

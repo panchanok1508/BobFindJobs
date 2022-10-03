@@ -11,11 +11,26 @@ public class SpyCheckButton : MonoBehaviour
 
 
     private void Awake()
-    { 
-    
+    {
+
         spy.onClick.AddListener(ParameterOnClick);
+
+    }
+
+    public GameObject Next;
+
+
+    public void ShowNextButton()
+    {
+        if (spy.onClick != null)
+        {
+            bool isActive = Next.activeSelf;
+
+            Next.SetActive(!isActive);
+        }
  
     }
+
 
 
     private void ParameterOnClick()
@@ -23,17 +38,20 @@ public class SpyCheckButton : MonoBehaviour
  
         Debug.Log("Button Spy was pressed!");
     }
+   
 
     public void SpyWasClicked(string sceneName)
     {
-        if (spy == null)
+        if (spy != null)
         {
-            Debug.Log(" It's doesn't work ");
+            
+            Debug.Log(" Now is changing to spy scene  ");
+            SceneManager.LoadScene(sceneName);
+
         }
         else
         {
-            Debug.Log(" Now is changing to spy scene  ");
-            SceneManager.LoadScene(sceneName);
+            Debug.Log(" It's doesn't work ");
 
         }
     }
