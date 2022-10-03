@@ -13,7 +13,12 @@ public class Typer : MonoBehaviour
     private string remainingWord = string.Empty;
 
     private string currentWord = string.Empty;
-    
+
+    private Shake shake;
+
+    public TimerBar timerBar;
+
+
     //typer
     
     //timer
@@ -22,6 +27,8 @@ public class Typer : MonoBehaviour
     private float updateTreshold;
     private int currentNumber;
     private bool startCounting;
+
+    private bool isGameover=false;
     //timer
 
     //timer
@@ -39,51 +46,58 @@ public class Typer : MonoBehaviour
         currentNumber = startNumber;
         SetTimerText(currentNumber);
         //timer
+        timerBar.SetMaxTime(startNumber);
+
+        shake = GameObject.FindGameObjectWithTag("BombShake").GetComponent<Shake>();
     }
 
     
 
     private void Update()
     {
-        
-        
-        //timer
-        if (GetKeyDown(KeyCode.Space))
+        timerBar.SetTime(currentNumber);
+        if (isGameover==false)
         {
-            startCounting = true;
-            updateTreshold = 0;
-            currentNumber = startNumber;
-            SetTimerText(currentNumber);
+            //timer
+            if (GetKeyDown(KeyCode.Space))
+            {
+                startCounting = true;
+                updateTreshold = 0;
+                currentNumber = startNumber;
+                SetTimerText(currentNumber);
             
-        }
+            }
         
-        CheckInput();
+            CheckInput();
         
-        if (!startCounting)
-        {
-            return;
-        }
+            if (!startCounting)
+            {
+                return;
+            }
 
-        updateTreshold += Time.deltaTime;
-        if (updateTreshold<1)
-        {
-            return;
-        }
-        updateTreshold = 0;
-        currentNumber--;
-        if (currentNumber>0)
-        {
-            SetTimerText(currentNumber);
-            DisableKey(KeyCode.Space);
+            updateTreshold += Time.deltaTime;
+            if (updateTreshold<1)
+            {
+                return;
+            }
+            updateTreshold = 0;
+            currentNumber--;
+            if (currentNumber>0)
+            {
+                SetTimerText(currentNumber);
+                DisableKey(KeyCode.Space);
+            }
+            else
+            {
+                SetTimerText("END");
+                startCounting = false;
+                EnableKey(KeyCode.Space);
+            }
         }
         else
         {
-            SetTimerText("END");
-            startCounting = false;
-            EnableKey(KeyCode.Space);
+            
         }
-        
-
     }
 
     void SetTimerText(int number)
@@ -131,6 +145,12 @@ public class Typer : MonoBehaviour
             RemoveLetter();
             if (IsWordComplete())
             SetCurrentWord();
+        }
+        else
+        {
+            Debug.Log("false");
+            shake.BombShake();
+            
         }
     }
 
