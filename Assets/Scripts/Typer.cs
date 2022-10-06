@@ -27,6 +27,7 @@ public class Typer : MonoBehaviour
     private float updateTreshold;
     private int currentNumber;
     private bool startCounting;
+    public GameObject bomb;
 
     private bool isGameover=false;
     //timer
@@ -39,6 +40,7 @@ public class Typer : MonoBehaviour
     //timer
     private void Start()
     {
+       
         SetCurrentWord();
         //timer
         startCounting = false;
@@ -48,19 +50,24 @@ public class Typer : MonoBehaviour
         //timer
         timerBar.SetMaxTime(startNumber);
 
-        shake = GameObject.FindGameObjectWithTag("BombShake").GetComponent<Shake>();
     }
 
-    
+
 
     private void Update()
     {
+
+
         timerBar.SetTime(currentNumber);
         if (isGameover==false)
         {
+
+
             //timer
             if (GetKeyDown(KeyCode.Space))
             {
+                bomb.SetActive(true);
+                shake = GameObject.FindGameObjectWithTag("BombShake").GetComponent<Shake>();
                 startCounting = true;
                 updateTreshold = 0;
                 currentNumber = startNumber;
