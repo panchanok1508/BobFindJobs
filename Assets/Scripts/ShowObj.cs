@@ -5,6 +5,7 @@ using UnityEngine;
 public class ShowObj : MonoBehaviour
 {
     public GameObject Next;
+    public GameObject bob;
 
     public void ShowNextButton()
     {
@@ -18,6 +19,19 @@ public class ShowObj : MonoBehaviour
         {
             Next.SetActive(false);     
         }
+    }
+
+    public void HideImage()
+    {
+
+        if (bob == null)
+        {
+            bool isActive = bob.activeSelf;
+
+            bob.SetActive(!isActive);
+        }
+ 
+   
     }
 
 }
