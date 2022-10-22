@@ -1072,6 +1072,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6553949465428414355, guid: b3c637a0dd0096a41b3884e60f335495, type: 3}
+      propertyPath: bomb
+      value: 
+      objectReference: {fileID: 1014353010}
+    - target: {fileID: 6553949465428414355, guid: b3c637a0dd0096a41b3884e60f335495, type: 3}
       propertyPath: WordBank
       value: 
       objectReference: {fileID: 291755019}
