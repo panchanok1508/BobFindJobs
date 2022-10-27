@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class Typer : MonoBehaviour
+public class TyperThief : MonoBehaviour
 {
     private Dictionary<KeyCode, bool> keys = new Dictionary<KeyCode, bool>();
     //typer
@@ -14,9 +14,10 @@ public class Typer : MonoBehaviour
 
     private string currentWord = string.Empty;
 
-    private Shake shake;
+    private LockpickAnimationController _lockpickAnimationController;
 
     public TimerBar timerBar;
+    
 
 
     //typer
@@ -27,7 +28,7 @@ public class Typer : MonoBehaviour
     private float updateTreshold;
     private int currentNumber;
     private bool startCounting;
-    public GameObject bomb;
+    public GameObject lockpick;
 
     private bool isGameover=false;
     //timer
@@ -66,8 +67,8 @@ public class Typer : MonoBehaviour
             //timer
             if (GetKeyDown(KeyCode.Space))
             {
-                bomb.SetActive(true);
-                shake = GameObject.FindGameObjectWithTag("BombShake").GetComponent<Shake>();
+                //_lockpickAnimationController.SetActive(true);
+                _lockpickAnimationController = GameObject.FindGameObjectWithTag("Lockpick").GetComponent<LockpickAnimationController>();
                 startCounting = true;
                 updateTreshold = 0;
                 currentNumber = startNumber;
@@ -152,12 +153,13 @@ public class Typer : MonoBehaviour
             RemoveLetter();
             if (IsWordComplete())
             SetCurrentWord();
+            _lockpickAnimationController.lockpickMove();
         }
         else
         {
             Debug.Log("false");
-            shake.BombShake();
-            
+            _lockpickAnimationController.lockpickBroke();
+
         }
     }
 
