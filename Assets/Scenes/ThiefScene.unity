@@ -274,7 +274,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 40973404ce30c5040b74a324c9fe12f1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d3887585e9cdaa043aa60e9375839589, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -876,15 +876,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5128167594947051545, guid: 584a360cd339a1d449b1f18d4623490f, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5128167594947051545, guid: 584a360cd339a1d449b1f18d4623490f, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5128167594947051545, guid: 584a360cd339a1d449b1f18d4623490f, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5128167594947051545, guid: 584a360cd339a1d449b1f18d4623490f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -967,5 +967,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: WordBank
       objectReference: {fileID: 0}
+    - target: {fileID: 8864902899214516005, guid: 5405a777ab07c8d4584df8a929771867, type: 3}
+      propertyPath: time
+      value: 
+      objectReference: {fileID: 6553949465428414355, guid: b3c637a0dd0096a41b3884e60f335495, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5405a777ab07c8d4584df8a929771867, type: 3}

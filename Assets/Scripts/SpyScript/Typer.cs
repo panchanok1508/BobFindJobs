@@ -20,14 +20,14 @@ public class Typer : MonoBehaviour
 
     public TimerBar timerBar;
 
-
-    //typer
+    [SerializeField] SpecialCountdownTimer _specialCountdownTimer;
+    
     
     //timer
     [SerializeField] private Text timerText;
     [SerializeField] private int startNumber = 10;
     private float updateTreshold;
-    private int currentNumber;
+    public int currentNumber;
     private bool startCounting;
     public GameObject bomb;
     public GameObject spy;
@@ -94,11 +94,21 @@ public class Typer : MonoBehaviour
                 return;
             }
             updateTreshold = 0;
-            currentNumber--;
+            if (wordBank._isSpecialWordNow==true)
+            {
+                _specialCountdownTimer.SetStartCounting();
+
+            }
+            else
+            {
+                currentNumber--;
+            }
+            
             if (currentNumber>0)
             {
                 SetTimerText(currentNumber);
                 DisableKey(KeyCode.Space);
+                
             }
             else
             {
@@ -223,4 +233,6 @@ public class Typer : MonoBehaviour
         }
         
     }
+    
+    
 }
