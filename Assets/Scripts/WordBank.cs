@@ -6,9 +6,17 @@ using Random = UnityEngine.Random;
 
 public class WordBank : MonoBehaviour
 {
+    public bool _isSpecialWordNow=false;
+    private bool _isSpecialWordUsed=false;
+    [SerializeField] private Typer time;
     private List<string> originalWords = new List<string>()
     {
         "Hacker","Spy","Thief", "Job", "Bob"
+    };
+
+    private List<string> specialWords = new List<string>()
+    {
+        ".-","-...","-.-.","-.."
     };
 
     private List<string> workingWords = new List<string>();
@@ -40,12 +48,25 @@ public class WordBank : MonoBehaviour
 
     public string GetWord()
     {
+        
         string newWord = string.Empty;
 
         if (workingWords.Count!=0)
         {
-            newWord = workingWords.Last();
-            workingWords.Remove(newWord);
+            if (time.currentNumber<=5 && _isSpecialWordUsed==false)
+            {
+                Debug.Log("special");
+                newWord = specialWords.Last();
+                specialWords.Remove(newWord);
+                _isSpecialWordUsed = true;
+                _isSpecialWordNow = true;
+            }
+            else
+            {
+                newWord = workingWords.Last();
+                workingWords.Remove(newWord);
+            }
+            
         }
         return newWord;
     }

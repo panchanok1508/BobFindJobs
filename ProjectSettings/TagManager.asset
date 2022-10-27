@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - BombShake
+  - Lockpick
+  - Spy
+  - Police
   layers:
   - Default
   - TransparentFX
