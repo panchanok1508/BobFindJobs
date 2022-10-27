@@ -10,12 +10,12 @@ public class LevelLoader : MonoBehaviour
     public GameObject loadingScreen;
     public Slider slider;
 
+
     public void LoadLevel (int sceneIndex)
 
     {
 
         StartCoroutine(LoadAsynchronously(sceneIndex));
-
         Debug.Log("Change");
 
 
@@ -34,28 +34,30 @@ public class LevelLoader : MonoBehaviour
 
         while (!operation.isDone)
         {
-            progress = Mathf.MoveTowards(progress, operation.progress, Time.deltaTime);
+            //progress = Mathf.MoveTowards(progress, operation.progress, Time.deltaTime);
+            progress = Mathf.Clamp01(operation.progress / .9f);
+
             slider.value = progress;
-            if(progress >= 0.9f)
+            //Debug.Log("Progress 1 : "+progress);
+
+            if (progress >= 0.9f)
             {
                 slider.value = 1;
 
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
                     operation.allowSceneActivation = true;
-                    Debug.Log(progress);
+                    //Debug.Log("Progress 2 : "+progress);
                 }
-       
+
             }
 
 
             yield return progress ;
-            Debug.Log("GOOD");
-
 
         }
 
-
+     
 
     }
 }
