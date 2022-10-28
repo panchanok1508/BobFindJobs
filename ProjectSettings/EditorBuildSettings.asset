@@ -12,12 +12,18 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
+    path: Assets/Scenes/ThiefScene.unity
+    guid: 1e4449e37f2e67c448eaf7491cdda437
+  - enabled: 1
+    path: Assets/Scenes/HackerScene.unity
+    guid: 3fbf14d02893ed2478c88ae705892cbd
+  - enabled: 0
     path: Assets/Scenes/Spy.unity
     guid: 0b839f6a34bec7548a4d5ec1188fc662
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Thief.unity
     guid: 16d3dd3a8a3eec04ba828760cdbff091
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Hacker.unity
     guid: 07417246fb4c88a46b3b1ad29c4fbabd
   m_configObjects: {}
