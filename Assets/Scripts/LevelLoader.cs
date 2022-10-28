@@ -34,8 +34,9 @@ public class LevelLoader : MonoBehaviour
 
         while (!operation.isDone)
         {
-            //progress = Mathf.MoveTowards(progress, operation.progress, Time.deltaTime);
-            progress = Mathf.Clamp01(operation.progress / .9f);
+            progress = Mathf.MoveTowards(progress, operation.progress, Time.deltaTime);
+           
+           // progress = Mathf.Clamp01(operation.progress / .9f);
 
             slider.value = progress;
             //Debug.Log("Progress 1 : "+progress);
