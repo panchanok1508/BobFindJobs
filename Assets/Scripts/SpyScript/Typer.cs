@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class Typer : MonoBehaviour
 {
+    private int bonusTime;
+    private int remainingTime;
+    private int currentSpecialTime=3;
     private Dictionary<KeyCode, bool> keys = new Dictionary<KeyCode, bool>();
     //typer
     public WordBank wordBank = null;
@@ -20,8 +23,7 @@ public class Typer : MonoBehaviour
     private SpyAnimationContoller _spyAnimationContoller;
 
     public TimerBar timerBar;
-
-    [SerializeField] SpecialCountdownTimer _specialCountdownTimer;
+    
     
     
     //timer
@@ -95,15 +97,23 @@ public class Typer : MonoBehaviour
                 return;
             }
             updateTreshold = 0;
-            if (wordBank._isSpecialWordNow==true)
+            if (wordBank._isSpecialWordNow)
             {
-                _specialCountdownTimer.SetStartCounting();
-                //Debug.Log($"{_specialCountdownTimer.currentNumber}");
-
+                if (currentSpecialTime<=3 && currentSpecialTime!=0)
+                {
+                    currentNumber = currentSpecialTime;
+                    currentSpecialTime--;
+                }
+                else
+                {
+                    wordBank._isSpecialWordNow = false;
+                    currentNumber = remainingTime+bonusTime;
+                }
             }
             else
             {
                 currentNumber--;
+                remainingTime = currentNumber;
             }
             
             if (currentNumber>0)
@@ -174,7 +184,6 @@ public class Typer : MonoBehaviour
         }
         else
         {
-            Debug.Log("false");
             shake.BombShake();
             
         }

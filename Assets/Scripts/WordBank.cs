@@ -25,6 +25,7 @@ public class WordBank : MonoBehaviour
     {
         workingWords.AddRange(originalWords);
         Shuffle(workingWords);
+        Shuffle(specialWords);
         ConverToLower(workingWords);
     }
 
@@ -55,7 +56,6 @@ public class WordBank : MonoBehaviour
         {
             if (time.currentNumber<=5 && _isSpecialWordUsed==false)
             {
-                Debug.Log("special");
                 newWord = specialWords.Last();
                 specialWords.Remove(newWord);
                 _isSpecialWordUsed = true;
@@ -63,6 +63,7 @@ public class WordBank : MonoBehaviour
             }
             else
             {
+                _isSpecialWordNow = false;
                 newWord = workingWords.Last();
                 workingWords.Remove(newWord);
             }
