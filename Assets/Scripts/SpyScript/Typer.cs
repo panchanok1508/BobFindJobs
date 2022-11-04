@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
 public class Typer : MonoBehaviour
 {
     private Dictionary<KeyCode, bool> keys = new Dictionary<KeyCode, bool>();
@@ -97,6 +98,7 @@ public class Typer : MonoBehaviour
             if (wordBank._isSpecialWordNow==true)
             {
                 _specialCountdownTimer.SetStartCounting();
+                //Debug.Log($"{_specialCountdownTimer.currentNumber}");
 
             }
             else
