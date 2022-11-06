@@ -4,20 +4,24 @@ using UnityEngine;
 
 public class ShowObj : MonoBehaviour
 {
-    public GameObject Next;
+
+    public GameObject next;
     public GameObject bob;
+   
+
+ 
 
     public void ShowNextButton()
     {
-        if (Next != null)
+        if (next != null)
         {
-            bool isActive = Next.activeSelf;
+            bool isActive = next.activeSelf;
 
-            Next.SetActive(!isActive);
+            next.SetActive(!isActive);
         }
         else
         {
-            Next.SetActive(false);     
+            next.SetActive(false);
         }
     }
 
@@ -30,8 +34,9 @@ public class ShowObj : MonoBehaviour
 
             bob.SetActive(!isActive);
         }
- 
-   
     }
+
+
+ 
 
 }
