@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 public class WordBank : MonoBehaviour
 {
     public bool _isSpecialWordNow=false;
-    private bool _isSpecialWordUsed=false;
+    public bool _isSpecialWordUsed=false;
     [SerializeField] private Typer time;
     private List<string> originalWords = new List<string>()
     {

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Typer : MonoBehaviour
 {
-    private int bonusTime;
+    private int bonusTime = 3;
     private int remainingTime;
     private int currentSpecialTime=3;
     private Dictionary<KeyCode, bool> keys = new Dictionary<KeyCode, bool>();
@@ -99,27 +99,37 @@ public class Typer : MonoBehaviour
             updateTreshold = 0;
             if (wordBank._isSpecialWordNow)
             {
-                if (currentSpecialTime<=3 && currentSpecialTime!=0)
+                if (currentSpecialTime<=3 && currentSpecialTime>0)
                 {
-                    currentNumber = currentSpecialTime;
+                    SetTimerText(currentSpecialTime);
                     currentSpecialTime--;
+                    
                 }
                 else
                 {
                     wordBank._isSpecialWordNow = false;
-                    currentNumber = remainingTime+bonusTime;
+                    currentNumber = remainingTime;
                 }
             }
             else
             {
                 currentNumber--;
                 remainingTime = currentNumber;
+                
             }
             
             if (currentNumber>0)
             {
-                SetTimerText(currentNumber);
-                DisableKey(KeyCode.Space);
+                if (wordBank._isSpecialWordNow)
+                {
+                    DisableKey(KeyCode.Space);
+                }
+                else
+                {
+                    SetTimerText(currentNumber);
+                    DisableKey(KeyCode.Space);
+                }
+                
                 
             }
             else
@@ -180,7 +190,15 @@ public class Typer : MonoBehaviour
         {
             RemoveLetter();
             if (IsWordComplete())
-            SetCurrentWord();
+            {
+                if (wordBank._isSpecialWordNow)
+                {
+                    remainingTime = remainingTime + bonusTime;
+                    currentNumber = remainingTime;
+                }
+                SetCurrentWord();
+            }
+            
         }
         else
         {
