@@ -5,17 +5,18 @@ using UnityEngine;
 public class SpyAnimationContoller : MonoBehaviour
 {
     public Animator spyAnim;
+    public bool isDone;
 
     public void spyMove()
     {
         spyAnim.SetTrigger("Move");
-        Debug.Log("spymove");
+        isDone = true;
     }
 
     public void spyGameOver()
     {
         spyAnim.SetTrigger("spyGameOver");
-        Debug.Log("spygameover");
+        
     }
 
     

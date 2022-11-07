@@ -536,6 +536,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spyAnim: {fileID: 401250462}
+  isDone: 0
 --- !u!1 &434721293
 GameObject:
   m_ObjectHideFlags: 0
@@ -1536,7 +1537,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1463841057}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1544,11 +1545,11 @@ RectTransform:
   - {fileID: 1787415804}
   m_Father: {fileID: 521141389}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -49.592003, y: 495.26022}
-  m_SizeDelta: {x: 1549.364, y: 87.485}
+  m_AnchoredPosition: {x: 918, y: -49.491}
+  m_SizeDelta: {x: 984.35, y: 87.485}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1463841059
 MonoBehaviour:
@@ -2195,11 +2196,15 @@ PrefabInstance:
       objectReference: {fileID: 1132685136}
     - target: {fileID: 6553949465428414355, guid: b3c637a0dd0096a41b3884e60f335495, type: 3}
       propertyPath: startNumber
-      value: 10
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 6553949465428414355, guid: b3c637a0dd0096a41b3884e60f335495, type: 3}
       propertyPath: currentNumber
-      value: 10
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 6553949465428414355, guid: b3c637a0dd0096a41b3884e60f335495, type: 3}
+      propertyPath: remainingTime
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 6553949465428414355, guid: b3c637a0dd0096a41b3884e60f335495, type: 3}
       propertyPath: _specialCountdownTimer

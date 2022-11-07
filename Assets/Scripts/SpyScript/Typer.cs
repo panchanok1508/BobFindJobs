@@ -7,10 +7,10 @@ using UnityEngine.UI;
 public class Typer : MonoBehaviour
 {
     private int bonusTime = 3;
-    private int remainingTime;
+    [SerializeField] private int remainingTime;
     private int currentSpecialTime=3;
     private Dictionary<KeyCode, bool> keys = new Dictionary<KeyCode, bool>();
-    //typer
+    
     public WordBank wordBank = null;
     public Text wordOutput = null;
 
@@ -24,9 +24,6 @@ public class Typer : MonoBehaviour
 
     public TimerBar timerBar;
     
-    
-    
-    //timer
     [SerializeField] private Text timerText;
     [SerializeField] private int startNumber = 10;
     private float updateTreshold;
@@ -35,26 +32,25 @@ public class Typer : MonoBehaviour
     public GameObject bomb;
     public GameObject spy;
 
-    private bool isGameover=false;
-    //timer
-
-    //timer
+    
     private void Awake()
     {
         Debug.Assert(condition:timerText!=null,message:"timeText not be null");
     }
-    //timer
+    
     private void Start()
     {
        
         SetCurrentWord();
-        //timer
-        startCounting = false;
-        updateTreshold = 0;
-        currentNumber = startNumber;
-        SetTimerText(currentNumber);
-        //timer
+
         timerBar.SetMaxTime(startNumber);
+
+        bomb.SetActive(true);
+        shake = GameObject.FindGameObjectWithTag("BombShake").GetComponent<Shake>();
+        _spyAnimationContoller = GameObject.FindGameObjectWithTag("Spy").GetComponent<SpyAnimationContoller>();
+        _spyAnimationContoller.spyMove();
+        
+
 
     }
 
@@ -62,27 +58,15 @@ public class Typer : MonoBehaviour
 
     private void Update()
     {
-
-
-        timerBar.SetTime(currentNumber);
-        if (isGameover==false)
+        
+        timerBar.SetTime(remainingTime);
+        if (GetKeyDown(KeyCode.Space)&&_spyAnimationContoller.isDone)
         {
-
-
-            //timer
-            if (GetKeyDown(KeyCode.Space))
-            {
-                bomb.SetActive(true);
-                shake = GameObject.FindGameObjectWithTag("BombShake").GetComponent<Shake>();
-                _spyAnimationContoller = GameObject.FindGameObjectWithTag("Spy").GetComponent<SpyAnimationContoller>();
-                _spyAnimationContoller.spyMove();
-                startCounting = true;
-                updateTreshold = 0;
-                currentNumber = startNumber;
-                SetTimerText(currentNumber);
-                
-            
-            }
+            startCounting = true;
+            updateTreshold = 0;
+            currentNumber = startNumber;
+            SetTimerText(currentNumber);
+        }
         
             CheckInput();
         
@@ -140,11 +124,7 @@ public class Typer : MonoBehaviour
                 EnableKey(KeyCode.Space);
             }
         }
-        else
-        {
-            
-        }
-    }
+   
 
     void SetTimerText(int number)
     {
@@ -155,9 +135,7 @@ public class Typer : MonoBehaviour
     {
         timerText.text = text;
     }
-    //timer
-
-    //typer
+    
     private void SetCurrentWord()
     {
         currentWord = wordBank.GetWord();
@@ -223,7 +201,7 @@ public class Typer : MonoBehaviour
     {
         return remainingWord.Length==0;
     }
-    //typer
+    
     private bool GetKeyDown(KeyCode keyCode)
     {
         if (!keys.ContainsKey(keyCode))
