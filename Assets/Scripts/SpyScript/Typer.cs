@@ -62,10 +62,12 @@ public class Typer : MonoBehaviour
         timerBar.SetTime(remainingTime);
         if (GetKeyDown(KeyCode.Space)&&_spyAnimationContoller.spyAnim.GetCurrentAnimatorStateInfo(0).IsName("Move")==false)
         {
+            DisableKey(KeyCode.Space);
             startCounting = true;
             updateTreshold = 0;
             currentNumber = startNumber;
             SetTimerText(currentNumber);
+            
         }
         
             CheckInput();
@@ -149,7 +151,7 @@ public class Typer : MonoBehaviour
     }
     private void CheckInput()
     {
-        if (currentNumber>0 && currentNumber!=startNumber)
+        if (currentNumber>0 &&_spyAnimationContoller.spyAnim.GetCurrentAnimatorStateInfo(0).IsName("Move")==false)
         {
             if (Input.anyKeyDown)
             {
