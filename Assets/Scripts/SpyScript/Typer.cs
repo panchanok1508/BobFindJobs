@@ -6,28 +6,28 @@ using UnityEngine.UI;
 
 public class Typer : MonoBehaviour
 {
-    private int bonusTime = 3;
-    [SerializeField] private int remainingTime;
-    private int currentSpecialTime=3;
+    private int bonusTime = 3; //BonusTime When Type SpecialWord Correct In time
+    [SerializeField] private int remainingTime; //TimeLeft For TimerBar
+    private int currentSpecialTime=3; //Set SpecialWordTime
     private Dictionary<KeyCode, bool> keys = new Dictionary<KeyCode, bool>();
     
     public WordBank wordBank = null;
-    public Text wordOutput = null;
+    public Text wordOutput = null; //WordText
 
     private string remainingWord = string.Empty;
 
-    private string currentWord = string.Empty;
+    private string currentWord = string.Empty; 
 
-    private Shake shake;
+    private Shake shake; //BombAnimationShakeWhenFalse
 
     private SpyAnimationContoller _spyAnimationContoller;
 
     public TimerBar timerBar;
     
     [SerializeField] private Text timerText;
-    [SerializeField] private int startNumber = 10;
+    [SerializeField] private int startNumber; //Set Default Time
     private float updateTreshold;
-    public int currentNumber;
+    public int currentNumber; //Time to Text
     private bool startCounting;
     public GameObject bomb;
     public GameObject spy;
@@ -60,6 +60,8 @@ public class Typer : MonoBehaviour
     {
 
         timerBar.SetTime(remainingTime);
+        
+        //StartGame
         if (GetKeyDown(KeyCode.Space)&&_spyAnimationContoller.spyAnim.GetCurrentAnimatorStateInfo(0).IsName("Move")==false)
         {
             DisableKey(KeyCode.Space);
@@ -168,6 +170,7 @@ public class Typer : MonoBehaviour
     {
         if (IsCorrectLetter(typedLetter))
         {
+            //TypeCorrect
             RemoveLetter();
             if (IsWordComplete())
             {
@@ -182,8 +185,8 @@ public class Typer : MonoBehaviour
         }
         else
         {
+            //TypeFalse
             shake.BombShake();
-            
         }
     }
 
