@@ -58,9 +58,9 @@ public class Typer : MonoBehaviour
 
     private void Update()
     {
-        
+
         timerBar.SetTime(remainingTime);
-        if (GetKeyDown(KeyCode.Space)&&_spyAnimationContoller.isDone)
+        if (GetKeyDown(KeyCode.Space)&&_spyAnimationContoller.spyAnim.GetCurrentAnimatorStateInfo(0).IsName("Move")==false)
         {
             startCounting = true;
             updateTreshold = 0;
