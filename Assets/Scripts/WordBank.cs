@@ -12,7 +12,8 @@ public class WordBank : MonoBehaviour
     [SerializeField] private Typer time;
     private List<string> originalWords = new List<string>()
     {
-        "Hacker","Spy","Thief", "Job", "Bob"
+        "Suspect" ,"Clue" ,"Alibi"   ,"Murder"  ,"Killer","Secret","Police" ,"Plan"  ,"Bullet"
+        ,"Clash" , "Assets" ,"Trace"  ,"Stalk"  ,"Mask" ,"Wire" 
     };
 
     private List<string> specialWords = new List<string>()
@@ -22,15 +23,26 @@ public class WordBank : MonoBehaviour
 
     private List<string> secondStageWords = new List<string>()
     {
-        "second","stagesecond","secondstage"
+        "Suspect" ,"Clue" ,"Alibi"   ,"Murder"  ,"Killer","Secret","Police" ,"Plan"  ,"Bullet" 
+        ,"Clash" , "Assets" ,"Trace"  ,"Stalk"  ,"Mask" ,"Wire" ,"Sneak" ,"Death"  ,"Hidden","Felony" ,"Mission"
     };
     private List<string> thirdStageWords = new List<string>()
     {
-        "third","stagethird","thirdstage"
+         "Victim" ,"Suspect"  ,"Witness" ,"Culprit" ,"Clue" ,"Alibi" ,"Murder" ,"Killer"  
+        ,"Secret","Police" ,"Suspect" ,"Plan"  ,"Bullet" ,"Hiding","Clash" , "Assets" ,"Dispute" 
+        ,"Trace" ,"Witness" ,"Stalk"  ,"Lawsuit" ,"Mask" ,"Wire" ,"Sneak" ,"Death"  ,"Culprit"  
+        ,"Trigger" ,"Hidden","Felony" ,"Mission" 
     };
     private List<string> fourthStageWords = new List<string>()
     {
-        "fourth","stagefourth","fourthstage"
+         "Investigation", "Victim" ,"Criminal" ,"Suspect" ,"Accomplice" ,"Witness" ,"Culprit"
+        ,"Clue" ,"Evidence" ,"Alibi" ,"Detective" ,"Suicide" ,"Murder" ,"Slaughter" ,"Perpetrator"
+        ,"Killer" ,"Criminology" ,"Secret" ,"Conspirator" ,"Police" ,"Suspect" ,"Accusation"
+        ,"Villain" ,"Plan" ,"Gunpoint" ,"Disguise" ,"Bullet" ,"Suspicious" ,"Hideaway" ,"Hiding"
+        ,"Equipment" ,"Clash" ,"Threatening", "Assets" ,"Investigator" ,"Dispute" ,"Trace" ,"Sentence"
+        ,"Assault" ,"Witness" ,"Stalk" ,"Condolence" ,"Prosecute" ,"Disguise" ,"Lawsuit" ,"Fingerprint"
+        ,"Mask" ,"Wire" ,"Sneak" ,"Death" ,"Motivation" ,"Culprit" ,"Collusion" ,"Trigger" ,"Hidden"
+        ,"Remuneration" ,"Felony" ,"Mission" ,"Disguise" ,"Fratricide"
     };
 
     private List<string> workingWords = new List<string>();
