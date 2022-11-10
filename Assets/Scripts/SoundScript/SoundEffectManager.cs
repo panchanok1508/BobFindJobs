@@ -39,6 +39,9 @@ namespace Sound
         {
             CurrectEffect,
             WrongEffect,
+            lockpickmove,
+            lockpickbroke,
+            policewakeup,
         }
 
         public void Play(SoundName soundName)

@@ -2,21 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LockpickAnimationController : MonoBehaviour
+namespace Sound
 {
-    public Animator lockpickAnim;
-
-    public void lockpickMove()
+    public class LockpickAnimationController : MonoBehaviour
     {
-        lockpickAnim.SetTrigger("LockpickMove");
-        Debug.Log("lockpickmove");
-    }
+        public Animator lockpickAnim;
 
-    public void lockpickBroke()
-    {
-        lockpickAnim.SetTrigger("LockpickBroke");
-        Debug.Log("lockpickbroke");
-    }
-    
+        public void lockpickMove()
+        {
+            lockpickAnim.SetTrigger("LockpickMove");
+            Debug.Log("lockpickmove");
+            SoundEffectManager.instace.Play(SoundEffectManager.SoundName.lockpickmove);
+        }
 
+        public void lockpickBroke()
+        {
+            lockpickAnim.SetTrigger("LockpickBroke");
+            Debug.Log("lockpickbroke");
+            SoundEffectManager.instace.Play(SoundEffectManager.SoundName.lockpickbroke);
+        }
+
+
+    }
 }
