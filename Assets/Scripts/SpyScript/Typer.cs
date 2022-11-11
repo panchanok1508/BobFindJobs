@@ -34,6 +34,7 @@ public class Typer : MonoBehaviour
     public GameObject fakeUI;
     public GameObject spyImage;
     public GameObject spyImage1;
+    public GameObject bombPopup;
 
     
     private void Awake()
@@ -41,6 +42,8 @@ public class Typer : MonoBehaviour
         Debug.Assert(condition:timerText!=null,message:"timeText not be null");
         fakeUI.SetActive(false);
         dropBg.SetActive(false);
+        bombPopup.SetActive(false);
+        
     }
     
     private void Start()
@@ -51,7 +54,7 @@ public class Typer : MonoBehaviour
         timerBar.SetMaxTime(startNumber);
 
         bomb.SetActive(true);
-        shake = GameObject.FindGameObjectWithTag("BombShake").GetComponent<Shake>();
+        //shake = GameObject.FindGameObjectWithTag("BombShake").GetComponent<Shake>();
         _spyAnimationContoller = GameObject.FindGameObjectWithTag("Spy").GetComponent<SpyAnimationContoller>();
         _spyAnimationContoller.spyMove();
         
@@ -69,10 +72,13 @@ public class Typer : MonoBehaviour
         //StartGame
         if (GetKeyDown(KeyCode.Space)&&_spyAnimationContoller.spyAnim.GetCurrentAnimatorStateInfo(0).IsName("Move")==false)
         {
+            
             fakeUI.SetActive(true);
             dropBg.SetActive(true);
             spyImage.SetActive(false);
             spyImage1.SetActive(true);
+            bombPopup.SetActive(true);
+            shake = GameObject.FindGameObjectWithTag("BombShake").GetComponent<Shake>();
             DisableKey(KeyCode.Space);
             startCounting = true;
             updateTreshold = 0;
@@ -81,7 +87,7 @@ public class Typer : MonoBehaviour
             
         }
         
-            CheckInput();
+        CheckInput();
         
             if (!startCounting)
             {
@@ -136,7 +142,7 @@ public class Typer : MonoBehaviour
                 startCounting = false;
                 EnableKey(KeyCode.Space);
             }
-        }
+    }
    
 
     void SetTimerText(int number)
@@ -162,6 +168,7 @@ public class Typer : MonoBehaviour
     }
     private void CheckInput()
     {
+        
         if (currentNumber>0 &&_spyAnimationContoller.spyAnim.GetCurrentAnimatorStateInfo(0).IsName("Move")==false)
         {
             if (Input.anyKeyDown)
@@ -190,8 +197,8 @@ public class Typer : MonoBehaviour
                 }
                 SetCurrentWord();
             }
-            
         }
+ 
         else
         {
             //TypeFalse
