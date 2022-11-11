@@ -30,12 +30,17 @@ public class Typer : MonoBehaviour
     public int currentNumber; //Time to Text
     private bool startCounting;
     public GameObject bomb;
-    public GameObject spy;
+    public GameObject dropBg;
+    public GameObject fakeUI;
+    public GameObject spyImage;
+    public GameObject spyImage1;
 
     
     private void Awake()
     {
         Debug.Assert(condition:timerText!=null,message:"timeText not be null");
+        fakeUI.SetActive(false);
+        dropBg.SetActive(false);
     }
     
     private void Start()
@@ -64,6 +69,10 @@ public class Typer : MonoBehaviour
         //StartGame
         if (GetKeyDown(KeyCode.Space)&&_spyAnimationContoller.spyAnim.GetCurrentAnimatorStateInfo(0).IsName("Move")==false)
         {
+            fakeUI.SetActive(true);
+            dropBg.SetActive(true);
+            spyImage.SetActive(false);
+            spyImage1.SetActive(true);
             DisableKey(KeyCode.Space);
             startCounting = true;
             updateTreshold = 0;

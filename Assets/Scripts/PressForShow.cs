@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,10 @@ public class PressForShow : MonoBehaviour
     public GameObject menu;
     public static bool GameIsPaused = false;
 
+    private void Awake()
+    {
+        menu.SetActive(false);
+    }
 
     void Update()
     {
@@ -20,7 +25,7 @@ public class PressForShow : MonoBehaviour
                Resume();
             }
             else
-            {        
+            {       
                 Pause();
             }
         }
