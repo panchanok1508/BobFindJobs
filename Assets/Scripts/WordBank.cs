@@ -3,12 +3,15 @@ using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using UnityEngine.UI;
 
 public class WordBank : MonoBehaviour
 {
+
     public int stage = 1;
     public bool _isSpecialWordNow=false;
     public bool _isSpecialWordUsed=false;
+    [SerializeField] private Text stageText;
     [SerializeField] private Typer time;
     private List<string> originalWords = new List<string>()
     {
@@ -53,7 +56,11 @@ public class WordBank : MonoBehaviour
         Shuffle(workingWords);
         Shuffle(specialWords);
         ConverToLower(workingWords);
+      
+        
     }
+
+   
 
     private void Shuffle(List<string> list)
     {
@@ -98,6 +105,7 @@ public class WordBank : MonoBehaviour
         {
             if (stage==1)
             {
+                SetStageText("Stage : 2");
                 workingWords.AddRange(secondStageWords);
                 Shuffle(workingWords);
                 ConverToLower(workingWords);
@@ -108,9 +116,11 @@ public class WordBank : MonoBehaviour
                 workingWords.Remove(newWord);
                 time.currentNumber = 60;
                 stage++;
+                
             }
             else if (stage==2)
             {
+                SetStageText("Stage : 3");
                 workingWords.AddRange(thirdStageWords);
                 Shuffle(workingWords);
                 ConverToLower(workingWords);
@@ -126,6 +136,7 @@ public class WordBank : MonoBehaviour
             }
             else if (stage==3)
             {
+                SetStageText("Stage : 4");
                 workingWords.AddRange(fourthStageWords);
                 Shuffle(workingWords);
                 ConverToLower(workingWords);
@@ -141,6 +152,7 @@ public class WordBank : MonoBehaviour
             }
             else
             {
+                SetStageText("Stage : 4");
                 workingWords.AddRange(fourthStageWords);
                 Shuffle(workingWords);
                 ConverToLower(workingWords);
@@ -156,5 +168,16 @@ public class WordBank : MonoBehaviour
             
         }
         return newWord;
+    }
+    
+    
+    void SetStageText(int number)
+    {
+        stageText.text = number.ToString();
+    }
+
+    void SetStageText(string text)
+    {
+        stageText.text = text;
     }
 }

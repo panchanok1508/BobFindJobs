@@ -35,6 +35,8 @@ public class Typer : MonoBehaviour
     public GameObject spyImage;
     public GameObject spyImage1;
     public GameObject bombPopup;
+    public GameObject gameOver;
+
 
     
     private void Awake()
@@ -43,6 +45,7 @@ public class Typer : MonoBehaviour
         fakeUI.SetActive(false);
         dropBg.SetActive(false);
         bombPopup.SetActive(false);
+        gameOver.SetActive(false);
         
     }
     
@@ -140,8 +143,15 @@ public class Typer : MonoBehaviour
                 
                 SetTimerText("END");
                 startCounting = false;
-                EnableKey(KeyCode.Space);
+                //EnableKey(KeyCode.Space);
+                gameOver.SetActive(true);
             }
+
+            if (gameOver.activeInHierarchy == true)
+            {
+                DisableKey(KeyCode.Space);
+            }
+            
     }
    
 
