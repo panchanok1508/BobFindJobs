@@ -2,15 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PoliceAnimationController : MonoBehaviour
+namespace Sound
 {
-    public Animator policeAnim;
-
-    public void policeNotice()
+    public class PoliceAnimationController : MonoBehaviour
     {
-        policeAnim.SetTrigger("PoliceNotice");
-        Debug.Log("policenotice");
-    }
+        public Animator policeAnim;
 
-    
+        public void policeNotice()
+        {
+            policeAnim.SetTrigger("PoliceNotice");
+            Debug.Log("policenotice");
+            SoundEffectManager.instace.Play(SoundEffectManager.SoundName.policewakeup);
+        }
+
+
+    }
 }
