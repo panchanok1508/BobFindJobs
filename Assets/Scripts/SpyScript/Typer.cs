@@ -39,7 +39,7 @@ namespace Sound
         public GameObject spyImage1;
         public GameObject bombPopup;
         public GameObject gameOver;
-
+        public GameObject specialTimeUI;
 
 
         private void Awake()
@@ -100,6 +100,7 @@ namespace Sound
             updateTreshold = 0;
             if (wordBank._isSpecialWordNow)
             {
+                specialTimeUI.SetActive(true);
                 if (currentSpecialTime <= 3 && currentSpecialTime > 0)
                 {
                     SetTimerText(currentSpecialTime);
@@ -114,6 +115,7 @@ namespace Sound
             }
             else
             {
+                specialTimeUI.SetActive(false);
                 currentNumber--;
                 remainingTime = currentNumber;
 
