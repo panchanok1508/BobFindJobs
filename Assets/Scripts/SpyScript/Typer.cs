@@ -109,6 +109,7 @@ namespace Sound
                 }
                 else
                 {
+                    specialTimeUI.SetActive(false);
                     wordBank._isSpecialWordNow = false;
                     currentNumber = remainingTime;
                 }
