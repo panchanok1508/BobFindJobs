@@ -9,8 +9,13 @@ namespace Sound
     public class Typer : MonoBehaviour
 
     {
+        private bool clearVar = false;
+        private int wordScore;
+        [SerializeField] private Text allWordInStageText;
+        private int wordLeft=-1;
+        public int allWordInStage;
         private int bonusTime = 3; //BonusTime When Type SpecialWord Correct In time
-        [SerializeField] private int remainingTime; //TimeLeft For TimerBar
+        public int remainingTime; //TimeLeft For TimerBar
         public int currentSpecialTime = 3; //Set SpecialWordTime
         private Dictionary<KeyCode, bool> keys = new Dictionary<KeyCode, bool>();
 
@@ -26,7 +31,7 @@ namespace Sound
         private SpyAnimationContoller _spyAnimationContoller;
 
         public TimerBar timerBar;
-
+        [SerializeField] private Text wordLeftText;
         [SerializeField] private Text timerText;
         [SerializeField] private int startNumber; //Set Default Time
         private float updateTreshold;
@@ -64,7 +69,7 @@ namespace Sound
 
         private void Update()
         {
-
+            SetAllWordInStage(allWordInStage);
             timerBar.SetTime(remainingTime);
 
             //StartGame
@@ -82,7 +87,9 @@ namespace Sound
                 currentNumber = startNumber;
                 SetTimerText(currentNumber);
             }
-
+            
+            
+            Wordleft(wordLeft);
             CheckInput();
 
 
@@ -112,6 +119,7 @@ namespace Sound
                     wordBank._isSpecialWordNow = false;
                     Debug.Log("Work Here Already");
                     currentNumber = remainingTime;
+                    SetCurrentWord();
                 }
             }
             else
@@ -138,7 +146,7 @@ namespace Sound
             }
             else
             {
-
+                Debug.Log($"word score : {wordScore}");
                 SetTimerText("END");
                 startCounting = false;
                 //EnableKey(KeyCode.Space);
@@ -163,6 +171,7 @@ namespace Sound
 
         private void SetCurrentWord()
         {
+            wordLeft++;
             currentWord = wordBank.GetWord();
             SetRemainingWord(currentWord);
         }
@@ -213,7 +222,6 @@ namespace Sound
                         }
 
                         SetCurrentWord();
-
                         SoundEffectManager.instace.Play(SoundEffectManager.SoundName.CurrectEffect);
                     }
 
@@ -282,6 +290,49 @@ namespace Sound
 
             }
 
+            private void Wordleft(int wordleft)
+            {
+                wordLeftText.text = wordleft.ToString();
+            }
 
+            public void SetAllWordInStage(int allword)
+            {
+                switch (wordBank.stage)
+                {
+                    case 1:
+                        allWordInStage = 15;
+                        wordScore = wordLeft;
+                        break;
+                    case 2:
+                        allWordInStage = 20;
+                        if (clearVar==false)
+                        {
+                            wordLeft = 0;
+                            clearVar = true;
+                        }
+                        wordScore = 15+wordLeft;
+                        break;
+                    case 3:
+                        allWordInStage = 30;
+                        if (clearVar==true)
+                        {
+                            wordLeft = 0;
+                            clearVar = false;
+                        }
+                        wordScore = 35+wordLeft;
+                        break;
+                    case 4:
+                        allWordInStage = 60;
+                        if (clearVar==false)
+                        {
+                            wordLeft = 0;
+                            wordScore = 65;
+                            clearVar = true;
+                        }
+                        wordScore = wordLeft+wordScore;
+                        break;
+                }
+                allWordInStageText.text = allWordInStage.ToString();
+            }
         }
     }
