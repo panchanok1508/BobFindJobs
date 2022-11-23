@@ -201,6 +201,7 @@ namespace Sound
                 {
                     //TypeCorrect
                     RemoveLetter();
+                    SoundEffectManager.instace.Play(SoundEffectManager.SoundName.CurrectEffect);
                     if (IsWordComplete())
                     {
                         if (wordBank._isSpecialWordNow)
@@ -211,14 +212,14 @@ namespace Sound
 
                         SetCurrentWord();
 
-                        SoundEffectManager.instace.Play(SoundEffectManager.SoundName.CurrectEffect);
+                        SoundEffectManager.instace.Play(SoundEffectManager.SoundName.CompletEffect);
                     }
 
                 }
                 else
                 {
                     //TypeFalse
-                    SoundEffectManager.instace.Play(SoundEffectManager.SoundName.WrongEffect);
+                    SoundEffectManager.instace.Play(SoundEffectManager.SoundName.Warning);
                     shake.BombShake();
                 }
             }

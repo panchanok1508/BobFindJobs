@@ -38,7 +38,9 @@ namespace Sound
         public enum SoundName
         {
             CurrectEffect,
+            CompletEffect,
             WrongEffect,
+            Warning,
             lockpickmove,
             lockpickbroke,
             policewakeup,
