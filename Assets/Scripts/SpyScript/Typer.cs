@@ -11,7 +11,7 @@ namespace Sound
     {
         private int bonusTime = 3; //BonusTime When Type SpecialWord Correct In time
         [SerializeField] private int remainingTime; //TimeLeft For TimerBar
-        private int currentSpecialTime = 3; //Set SpecialWordTime
+        public int currentSpecialTime = 3; //Set SpecialWordTime
         private Dictionary<KeyCode, bool> keys = new Dictionary<KeyCode, bool>();
 
         public WordBank wordBank = null;
@@ -33,7 +33,7 @@ namespace Sound
         public int currentNumber; //Time to Text
         private bool startCounting;
         public GameObject bomb;
-        public GameObject dropBg;
+        //public GameObject dropBg;
         public GameObject fakeUI;
         public GameObject spyImage;
         public GameObject spyImage1;
@@ -46,7 +46,7 @@ namespace Sound
         {
             Debug.Assert(condition: timerText != null, message: "timeText not be null");
             fakeUI.SetActive(false);
-            dropBg.SetActive(false);
+            //dropBg.SetActive(false);
             bombPopup.SetActive(false);
             gameOver.SetActive(false);
 
@@ -71,7 +71,7 @@ namespace Sound
             if (GetKeyDown(KeyCode.Space) && _spyAnimationContoller.spyAnim.GetCurrentAnimatorStateInfo(0).IsName("Move") == false)
             {
                 fakeUI.SetActive(true);
-                dropBg.SetActive(true);
+                //dropBg.SetActive(true);
                 spyImage.SetActive(false);
                 spyImage1.SetActive(true);
                 bombPopup.SetActive(true);
@@ -100,24 +100,24 @@ namespace Sound
             updateTreshold = 0;
             if (wordBank._isSpecialWordNow)
             {
-                specialTimeUI.SetActive(true);
-                if (currentSpecialTime <= 3 && currentSpecialTime > 0)
+                if (currentSpecialTime <= 3 && currentSpecialTime > 0) 
                 {
                     SetTimerText(currentSpecialTime);
                     currentSpecialTime--;
+                    Debug.Log(currentSpecialTime);
 
                 }
                 else
                 {
-                    specialTimeUI.SetActive(false);
                     wordBank._isSpecialWordNow = false;
+                    Debug.Log("Work Here Already");
                     currentNumber = remainingTime;
                 }
             }
             else
             {
-                specialTimeUI.SetActive(false);
-                currentNumber--;
+               // specialTimeUI.SetActive(false);
+               currentNumber--;
                 remainingTime = currentNumber;
 
             }
