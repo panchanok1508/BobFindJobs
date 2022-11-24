@@ -219,6 +219,7 @@ namespace Sound
                 if (IsCorrectLetter(typedLetter))
                 {
                     //TypeCorrect
+                    shake.GreenLight();
                     RemoveLetter();
                     SoundEffectManager.instace.Play(SoundEffectManager.SoundName.CurrectEffect);
                     if (IsWordComplete())
@@ -231,7 +232,7 @@ namespace Sound
 
                         SetCurrentWord();
 
-
+                        
                         SoundEffectManager.instace.Play(SoundEffectManager.SoundName.CompletEffect);
 
                     }
