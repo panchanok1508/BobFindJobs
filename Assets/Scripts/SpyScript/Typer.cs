@@ -58,16 +58,20 @@ namespace Sound
             //dropBg.SetActive(false);
             bombPopup.SetActive(false);
             gameOver.SetActive(false);
+            specialTimeUI.SetActive(false);
+        
 
         }
 
         private void Start()
         {
+            
             SetCurrentWord();
             bomb.SetActive(true);
             //shake = GameObject.FindGameObjectWithTag("BombShake").GetComponent<Shake>();
             _spyAnimationContoller = GameObject.FindGameObjectWithTag("Spy").GetComponent<SpyAnimationContoller>();
             _spyAnimationContoller.spyMove();
+        
 
         }
 
@@ -75,6 +79,8 @@ namespace Sound
         {
             SetAllWordInStage(allWordInStage);
             timerBar.SetTime(remainingTime);
+
+           
 
             //StartGame
             if (GetKeyDown(KeyCode.Space) && _spyAnimationContoller.spyAnim.GetCurrentAnimatorStateInfo(0).IsName("Move") == false)
@@ -112,6 +118,7 @@ namespace Sound
             updateTreshold = 0;
             if (wordBank._isSpecialWordNow)
             {
+                specialTimeUI.SetActive(true);
                 if (currentSpecialTime <= 3 && currentSpecialTime > 0) 
                 {
                     SetTimerText(currentSpecialTime);
@@ -121,6 +128,7 @@ namespace Sound
                 }
                 else
                 {
+                    specialTimeUI.SetActive(false);
                     wordBank._isSpecialWordNow = false;
                     Debug.Log("Work Here Already");
                     currentNumber = remainingTime;
@@ -129,7 +137,7 @@ namespace Sound
             }
             else
             {
-               // specialTimeUI.SetActive(false);
+               specialTimeUI.SetActive(false);
                currentNumber--;
                 remainingTime = currentNumber;
 
@@ -319,7 +327,7 @@ namespace Sound
 
             private void AllScore(int wordScore)
             {
-                scoreText.text = ("Score : "+ wordScore.ToString());
+                scoreText.text = wordScore.ToString();
 
             }
 
