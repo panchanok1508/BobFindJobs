@@ -15,6 +15,14 @@ namespace Sound
         public bool _isSpecialWordUsed = false;
         [SerializeField] private Text stageText;
         [SerializeField] private Sound.Typer time;
+        
+        public GameObject specialTimeUI;
+        public GameObject backgroundStage1;
+        public GameObject backgroundStage2;
+        public GameObject backgroundStage3;
+        public GameObject backgroundStage4;
+
+
 
         private List<string> originalWords = new List<string>()
         {
@@ -55,11 +63,12 @@ namespace Sound
 
         private void Awake()
         {
+            specialTimeUI.SetActive(false);
+            backgroundStage1.SetActive(true);
             workingWords.AddRange(originalWords);
             Shuffle(workingWords);
             Shuffle(specialWords);
             ConverToLower(workingWords);
-
 
         }
 
@@ -90,15 +99,19 @@ namespace Sound
 
             if (workingWords.Count != 0)
             {
+                
                 if (time.currentNumber <= 15 && _isSpecialWordUsed == false)
                 {
                     newWord = specialWords.Last();
                     specialWords.Remove(newWord);
                     _isSpecialWordUsed = true;
                     _isSpecialWordNow = true;
+                    specialTimeUI.SetActive(true);
+                    
                 }
                 else
                 {
+                    specialTimeUI.SetActive(false);
                     _isSpecialWordNow = false;
                     newWord = workingWords.Last();
                     workingWords.Remove(newWord);
@@ -108,6 +121,9 @@ namespace Sound
             {
                 if (stage == 1)
                 {
+                   
+                    backgroundStage1.SetActive(false);
+                    backgroundStage2.SetActive(true);
                     SetStageText("Stage : 2");
                     workingWords.AddRange(secondStageWords);
                     Shuffle(workingWords);
@@ -123,6 +139,9 @@ namespace Sound
                 }
                 else if (stage == 2)
                 {
+                   
+                    backgroundStage2.SetActive(false);
+                    backgroundStage3.SetActive(true);
                     SetStageText("Stage : 3");
                     workingWords.AddRange(thirdStageWords);
                     Shuffle(workingWords);
@@ -134,11 +153,13 @@ namespace Sound
                     workingWords.Remove(newWord);
                     time.currentNumber = 60;
                     stage++;
-                    time.currentNumber = 60;
-                    stage++;
+            
                 }
                 else if (stage == 3)
                 {
+                    
+                    backgroundStage3.SetActive(false);
+                    backgroundStage4.SetActive(true);
                     SetStageText("Stage : 4");
                     workingWords.AddRange(fourthStageWords);
                     Shuffle(workingWords);
@@ -150,11 +171,13 @@ namespace Sound
                     workingWords.Remove(newWord);
                     time.currentNumber = 60;
                     stage++;
-                    time.currentNumber = 60;
-                    stage++;
+                   
                 }
                 else
                 {
+                    
+                    backgroundStage3.SetActive(false);
+                    backgroundStage4.SetActive(true);
                     SetStageText("Stage : 4");
                     workingWords.AddRange(fourthStageWords);
                     Shuffle(workingWords);
@@ -166,7 +189,6 @@ namespace Sound
                     workingWords.Remove(newWord);
                     time.currentNumber = 60;
                     stage++;
-                    time.currentNumber = 60;
                 }
 
             }
