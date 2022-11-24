@@ -296,7 +296,7 @@ namespace Sound
 
             private void Wordleft(int wordleft)
             {
-                wordLeftText.text = wordleft.ToString();
+                wordLeftText.text = ("Word Left : "+ wordleft.ToString()+" / ");
             }
 
             public void SetAllWordInStage(int allword)
