@@ -356,6 +356,7 @@ namespace Sound
                             wordScore = 65;
                             clearVar = true;
                         }
+                        wordScore = 65;
                         wordScore = wordLeft+wordScore;
                         break;
                 }
