@@ -12,14 +12,12 @@ namespace Sound
         {
             lockpickAnim.SetTrigger("LockpickMove");
             Debug.Log("lockpickmove");
-            SoundEffectManager.instace.Play(SoundEffectManager.SoundName.lockpickmove);
         }
 
         public void lockpickBroke()
         {
             lockpickAnim.SetTrigger("LockpickBroke");
             Debug.Log("lockpickbroke");
-            SoundEffectManager.instace.Play(SoundEffectManager.SoundName.lockpickbroke);
         }
 
 

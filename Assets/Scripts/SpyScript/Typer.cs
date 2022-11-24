@@ -158,6 +158,10 @@ namespace Sound
                 gameOver.SetActive(true);
                 SoundEffectManager.instace.Play(SoundEffectManager.SoundName.EndGameEffect);
                 Destroy(GameObject.FindWithTag("BGM"));
+                Destroy(GameObject.FindWithTag("BGMStage2"));
+                Destroy(GameObject.FindWithTag("BGMStage3"));
+                Destroy(GameObject.FindWithTag("BGMStage4"));
+                Destroy(GameObject.FindWithTag("BGMStage5"));
             }
 
 
