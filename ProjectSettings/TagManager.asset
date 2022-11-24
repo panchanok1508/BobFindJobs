@@ -9,6 +9,10 @@ TagManager:
   - Spy
   - Police
   - BGM
+  - BGMStage2
+  - BGMStage3
+  - BGMStage4
+  - BGMStage5
   layers:
   - Default
   - TransparentFX

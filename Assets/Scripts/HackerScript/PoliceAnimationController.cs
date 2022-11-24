@@ -12,7 +12,6 @@ namespace Sound
         {
             policeAnim.SetTrigger("PoliceNotice");
             Debug.Log("policenotice");
-            SoundEffectManager.instace.Play(SoundEffectManager.SoundName.policewakeup);
         }
 
 

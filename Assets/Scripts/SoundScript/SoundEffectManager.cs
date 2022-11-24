@@ -43,9 +43,6 @@ namespace Sound
             EndGameEffect,
             Warning,
             spyAnimation,
-            lockpickmove,
-            lockpickbroke,
-            policewakeup,
         }
 
         public void Play(SoundName soundName)
