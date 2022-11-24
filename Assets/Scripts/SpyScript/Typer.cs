@@ -359,6 +359,16 @@ namespace Sound
                         wordScore = 65;
                         wordScore = wordLeft+wordScore;
                         break;
+                    default:
+                        if (clearVar)
+                        {
+                            wordLeft = 0;
+                            wordScore = 125;
+                            clearVar = false;
+                        }
+                        wordScore = 125;
+                        wordScore = wordLeft + wordScore;
+                        break;
                 }
                 //allWordInStageText.text = allWordInStage.ToString();
                 AllWord(allWordInStage);
