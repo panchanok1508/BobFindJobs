@@ -20,6 +20,11 @@ namespace Sound
 
         }
 
+        public void Wrong()
+        {
+            spyAnim.SetTrigger("Wrong");
+        }
+
 
 
     }

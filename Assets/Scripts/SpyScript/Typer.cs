@@ -247,6 +247,7 @@ namespace Sound
                     //TypeFalse
                     SoundEffectManager.instace.Play(SoundEffectManager.SoundName.Warning);
                     shake.BombShake();
+                    _spyAnimationContoller.Wrong();
                 }
             }
 
