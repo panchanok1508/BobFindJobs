@@ -10,10 +10,10 @@ namespace Sound
 
     {
         private bool clearVar = false;
-        private int wordScore;
+        private int wordScore = 0;
+        public int allWordInStage;
         [SerializeField] private Text allWordInStageText;
         private int wordLeft=-1;
-        public int allWordInStage;
         private int bonusTime = 3; //BonusTime When Type SpecialWord Correct In time
         public int remainingTime; //TimeLeft For TimerBar
         public int currentSpecialTime = 3; //Set SpecialWordTime
@@ -33,6 +33,10 @@ namespace Sound
         public TimerBar timerBar;
         [SerializeField] private Text wordLeftText;
         [SerializeField] private Text timerText;
+        [SerializeField] private Text wordScoreText;
+        [SerializeField] private Text scoreText;
+
+
         [SerializeField] private int startNumber; //Set Default Time
         private float updateTreshold;
         public int currentNumber; //Time to Text
@@ -88,7 +92,8 @@ namespace Sound
                 SetTimerText(currentNumber);
             }
             
-            
+            WordScore(wordScore);
+            AllScore(wordScore);
             Wordleft(wordLeft);
             CheckInput();
 
@@ -294,9 +299,20 @@ namespace Sound
 
             }
 
-            private void Wordleft(int wordleft)
+            private void Wordleft(int wordleft )
             {
-                wordLeftText.text = ("Word Left : "+ wordleft.ToString()+" / ");
+                wordLeftText.text = ("Word Left : "+ wordleft.ToString()+" / " + AllWord(allWordInStage));
+            }
+            
+            private void WordScore(int wordScore)
+            {
+                wordScoreText.text = ("Score : "+ wordScore.ToString());
+            }
+
+            private void AllScore(int wordScore)
+            {
+                scoreText.text = ("Score : "+ wordScore.ToString());
+
             }
 
             public void SetAllWordInStage(int allword)
@@ -336,7 +352,15 @@ namespace Sound
                         wordScore = wordLeft+wordScore;
                         break;
                 }
+                //allWordInStageText.text = allWordInStage.ToString();
+                AllWord(allWordInStage);
+            }
+            
+            private int AllWord(int allWordInStage )
+            {
                 allWordInStageText.text = allWordInStage.ToString();
+
+                return (allWordInStage);
             }
         }
     }
