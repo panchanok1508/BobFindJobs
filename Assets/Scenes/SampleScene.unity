@@ -1482,17 +1482,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - soundName: 0
-    clip: {fileID: 8300000, guid: 18c7155e5e763ef4e855f5d409c5c16f, type: 3}
-    volume: 1
-    loop: 0
-    audioSource: {fileID: 0}
-  - soundName: 1
     clip: {fileID: 8300000, guid: ff59e67679564e74bafc84a4a36e2a98, type: 3}
     volume: 1
     loop: 0
     audioSource: {fileID: 0}
   - soundName: 1
-    clip: {fileID: 8300000, guid: ff59e67679564e74bafc84a4a36e2a98, type: 3}
+    clip: {fileID: 8300000, guid: 334909cab0682344c831c12a86d0af6c, type: 3}
+    volume: 1
+    loop: 0
+    audioSource: {fileID: 0}
+  - soundName: 3
+    clip: {fileID: 8300000, guid: d1cf6fd523148c34997fea3483705991, type: 3}
     volume: 1
     loop: 0
     audioSource: {fileID: 0}
@@ -4377,7 +4377,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
