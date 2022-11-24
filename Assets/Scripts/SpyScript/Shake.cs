@@ -13,5 +13,10 @@ public class Shake : MonoBehaviour
         Debug.Log("shaky");
     }
 
+    public void GreenLight()
+    {
+        bombAnim.SetTrigger("greenlight");
+    }
+
     
 }
