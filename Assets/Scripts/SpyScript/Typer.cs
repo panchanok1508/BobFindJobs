@@ -156,6 +156,7 @@ namespace Sound
                 startCounting = false;
                 //EnableKey(KeyCode.Space);
                 gameOver.SetActive(true);
+                SoundEffectManager.instace.Play(SoundEffectManager.SoundName.EndGameEffect);
             }
 
 

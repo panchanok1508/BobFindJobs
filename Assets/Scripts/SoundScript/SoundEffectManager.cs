@@ -40,6 +40,7 @@ namespace Sound
             CurrectEffect,
             CompletEffect,
             WrongEffect,
+            EndGameEffect,
             Warning,
             lockpickmove,
             lockpickbroke,
