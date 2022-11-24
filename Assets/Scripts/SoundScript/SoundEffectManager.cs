@@ -42,6 +42,7 @@ namespace Sound
             WrongEffect,
             EndGameEffect,
             Warning,
+            spyAnimation,
             lockpickmove,
             lockpickbroke,
             policewakeup,

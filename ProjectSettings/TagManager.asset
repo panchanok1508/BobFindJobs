@@ -8,6 +8,7 @@ TagManager:
   - Lockpick
   - Spy
   - Police
+  - BGM
   layers:
   - Default
   - TransparentFX

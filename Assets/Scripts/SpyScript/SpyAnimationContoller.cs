@@ -2,21 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpyAnimationContoller : MonoBehaviour
+namespace Sound
 {
-    public Animator spyAnim;
-
-    public void spyMove()
+    public class SpyAnimationContoller : MonoBehaviour
     {
-        spyAnim.SetTrigger("Move");
+        public Animator spyAnim;
+
+        public void spyMove()
+        {
+            spyAnim.SetTrigger("Move");
+            SoundEffectManager.instace.Play(SoundEffectManager.SoundName.spyAnimation);
+        }
+
+        public void spyGameOver()
+        {
+            spyAnim.SetTrigger("spyGameOver");
+
+        }
+
+
+
     }
-
-    public void spyGameOver()
-    {
-        spyAnim.SetTrigger("spyGameOver");
-        
-    }
-
-    
-
 }
