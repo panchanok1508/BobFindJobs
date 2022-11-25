@@ -122,6 +122,7 @@ namespace Sound
                 if (stage == 1)
                 {
                     SoundBGMStage2.instace.Play(SoundBGMStage2.SoundName.stageBGM2);
+                    SoundBGMStage2.instace.Play(SoundBGMStage2.SoundName.woRadio);
                     Destroy(GameObject.FindWithTag("BGM"));
                     backgroundStage1.SetActive(false);
                     backgroundStage2.SetActive(true);
@@ -141,6 +142,7 @@ namespace Sound
                 else if (stage == 2)
                 {
                     SoundBGMStage3.instace.Play(SoundBGMStage3.SoundName.stageBGM3);
+                    SoundBGMStage3.instace.Play(SoundBGMStage3.SoundName.woRadio);
                     Destroy(GameObject.FindWithTag("BGMStage2"));
                     backgroundStage2.SetActive(false);
                     backgroundStage3.SetActive(true);
@@ -160,6 +162,7 @@ namespace Sound
                 else if (stage == 3)
                 {
                     SoundBGMStage4.instace.Play(SoundBGMStage4.SoundName.stageBGM4);
+                    SoundBGMStage4.instace.Play(SoundBGMStage4.SoundName.woRadio);
                     Destroy(GameObject.FindWithTag("BGMStage3"));
                     backgroundStage3.SetActive(false);
                     backgroundStage4.SetActive(true);
@@ -178,6 +181,7 @@ namespace Sound
                 else
                 {
                     SoundBGMStage5.instace.Play(SoundBGMStage5.SoundName.stageBGM5);
+                    SoundBGMStage5.instace.Play(SoundBGMStage5.SoundName.woRadio);
                     Destroy(GameObject.FindWithTag("BGMStage4"));
                     backgroundStage3.SetActive(false);
                     backgroundStage4.SetActive(true);

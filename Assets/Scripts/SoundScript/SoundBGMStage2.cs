@@ -38,6 +38,7 @@ namespace Sound
         public enum SoundName
         {
             stageBGM2,
+            woRadio,
         }
 
         public void Play(SoundName soundName)
