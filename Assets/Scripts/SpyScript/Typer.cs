@@ -9,6 +9,8 @@ namespace Sound
     public class Typer : MonoBehaviour
 
     {
+        public int stagePlus;
+        private int wordScoreStage5;
         private bool clearVar = false;
         private int wordScore = 0;
         public int allWordInStage;
@@ -369,14 +371,7 @@ namespace Sound
                         wordScore = wordLeft+wordScore;
                         break;
                     default:
-                        if (clearVar)
-                        {
-                            wordLeft = 0;
-                            wordScore = 125;
-                            clearVar = false;
-                        }
-                        wordScore = 125;
-                        wordScore = wordLeft + wordScore;
+                        //can't count score after stage 4
                         break;
                 }
                 //allWordInStageText.text = allWordInStage.ToString();

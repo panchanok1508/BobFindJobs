@@ -178,6 +178,26 @@ namespace Sound
                     time.currentNumber = 60;
                     stage++;
                 }
+                else if (stage==4)
+                {
+                    SoundBGMStage5.instace.Play(SoundBGMStage5.SoundName.stageBGM5);
+                    SoundBGMStage5.instace.Play(SoundBGMStage5.SoundName.woRadio);
+                    Destroy(GameObject.FindWithTag("BGMStage4"));
+                    backgroundStage3.SetActive(false);
+                    backgroundStage4.SetActive(true);
+                    SetStageText("Stage : 4");
+                    workingWords.AddRange(fourthStageWords);
+                    Shuffle(workingWords);
+                    ConverToLower(workingWords);
+                    specialWords.AddRange(specialWords);
+                    Shuffle(specialWords);
+                    _isSpecialWordNow = false;
+                    newWord = workingWords.Last();
+                    workingWords.Remove(newWord);
+                    time.currentNumber = 60;
+                    stage++;
+                    
+                }
                 else
                 {
                     SoundBGMStage5.instace.Play(SoundBGMStage5.SoundName.stageBGM5);
@@ -196,6 +216,7 @@ namespace Sound
                     workingWords.Remove(newWord);
                     time.currentNumber = 60;
                     stage++;
+                    time.stagePlus =+ 60;
                 }
 
             }
