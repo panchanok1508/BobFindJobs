@@ -52,7 +52,6 @@ namespace Sound
         public GameObject gameOver;
         public GameObject specialTimeUI;
 
-
         private void Awake()
         {
             Debug.Assert(condition: timerText != null, message: "timeText not be null");
